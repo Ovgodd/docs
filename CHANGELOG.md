@@ -11,6 +11,7 @@ and this project adheres to
 ### Added
 
 - ✨(frontend) add duplicate action to doc tree #1175
+- ✨(frontend) Interlinking doc #904
 
 ### Changed
 

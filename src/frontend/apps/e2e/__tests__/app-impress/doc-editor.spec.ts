@@ -706,4 +706,49 @@ test.describe('Doc Editor', () => {
       'pink',
     );
   });
+
+  test('it checks interlink feature', async ({ page, browserName }) => {
+    const [randomDoc] = await createDoc(page, 'doc-interlink', browserName, 1);
+
+    await verifyDocName(page, randomDoc);
+
+    const { name: docChild1 } = await createRootSubPage(
+      page,
+      browserName,
+      'doc-interlink-child-1',
+    );
+
+    await verifyDocName(page, docChild1);
+
+    const { name: docChild2 } = await createRootSubPage(
+      page,
+      browserName,
+      'doc-interlink-child-2',
+    );
+
+    await verifyDocName(page, docChild2);
+
+    await page.locator('.bn-block-outer').last().fill('/');
+    await page.getByText('Link to a page').first().click();
+
+    await page
+      .locator(
+        "span[data-inline-content-type='interlinkingSearchInline'] input",
+      )
+      .fill('interlink-child-1');
+
+    await page
+      .locator('.quick-search-container')
+      .getByText('interlink-child-1')
+      .click();
+
+    const interlink = page.getByRole('link', {
+      name: 'child-1',
+    });
+
+    await expect(interlink).toBeVisible();
+    await interlink.click();
+
+    await verifyDocName(page, docChild1);
+  });
 });
