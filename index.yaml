@@ -3,6 +3,15 @@ entries:
   docs:
   - apiVersion: v2
     appVersion: latest
+    created: "2026-10-12T09:41:22.754526981Z"
+    digest: 5bc11738538d1cc410c3e20077db6d2c1e276850a80f65187b68e69a9ad251ef
+    name: docs
+    type: application
+    urls:
+    - https://Ovgodd.github.io/docs/docs-6.0.0.tgz
+    version: 6.0.0
+  - apiVersion: v2
+    appVersion: latest
     created: "2025-07-18T10:25:18.191622039Z"
     digest: 8761284c244500ed682233612a451e17d685ebd8b76f3ae1e68dd694b9fbe3f7
     name: docs
@@ -334,4 +343,4 @@ entries:
     urls:
     - https://suitenumerique.github.io/docs/docs-0.0.1.tgz
     version: 0.0.1
-generated: "2025-07-18T10:25:18.188713319Z"
+generated: "2026-10-12T09:41:22.751637976Z"
